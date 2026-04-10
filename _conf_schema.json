@@ -1,0 +1,165 @@
+{
+  "title": "役次元玩具控制插件配置",
+  "description": "役次元玩具控制插件的配置选项",
+  "type": "object",
+  "properties": {
+    "ws_host": {
+      "title": "WebSocket 监听地址",
+      "description": "WebSocket 服务监听的地址",
+      "type": "string",
+      "default": "0.0.0.0"
+    },
+    "ws_port": {
+      "title": "WebSocket 监听端口",
+      "description": "WebSocket 服务监听的端口",
+      "type": "number",
+      "default": 5555
+    },
+    "ws_external_host": {
+      "title": "外部可访问地址",
+      "description": "生成二维码时使用的可访问地址",
+      "type": "string",
+      "default": "http://localhost:5555"
+    },
+    "send_qr_raw_url": {
+      "title": "发送二维码原始链接",
+      "description": "发送二维码时是否附带绑定链接",
+      "type": "boolean",
+      "default": true
+    },
+    "max_strength_a": {
+      "title": "A 通道最大强度",
+      "description": "A 通道的最大强度值",
+      "type": "number",
+      "default": 100
+    },
+    "max_strength_b": {
+      "title": "B 通道最大强度",
+      "description": "B 通道的最大强度值",
+      "type": "number",
+      "default": 100
+    },
+    "ycy_persona_id": {
+      "title": "共享人格 ID",
+      "description": "役次元共享人格 ID",
+      "type": "string",
+      "default": "ycy_persona"
+    },
+    "ycy_persona_system_prompt": {
+      "title": "人格提示词",
+      "description": "役次元人格系统提示词",
+      "type": "string",
+      "default": "你是役次元玩具控制助手，负责根据用户对话智能调整玩具参数。"
+    },
+    "ycy_persona_begin_dialogs": {
+      "title": "预设对话",
+      "description": "役次元人格预设对话",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "ycy_persona_error_reply": {
+      "title": "人格切换失败提示",
+      "description": "人格切换失败时的提示文案",
+      "type": "string",
+      "default": "人格切换失败，请稍后再试。"
+    },
+    "ycy_default_persona_id": {
+      "title": "默认人格 ID",
+      "description": "退出役次元后默认恢复的人格",
+      "type": "string",
+      "default": ""
+    },
+    "uploaded_wave_files": {
+      "title": "上传的波形文件",
+      "description": "上传的 .pulse 波形文件列表",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "afdian": {
+      "title": "爱发电配置",
+      "type": "object",
+      "properties": {
+        "base_url": {
+          "title": "爱发电 API 地址",
+          "type": "string",
+          "default": "https://afdian.com/api/open"
+        },
+        "user_id": {
+          "title": "爱发电用户 ID",
+          "type": "string",
+          "default": ""
+        },
+        "token": {
+          "title": "爱发电令牌",
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "billing": {
+      "title": "计费配置",
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "title": "开启自动计费",
+          "type": "boolean",
+          "default": false
+        },
+        "free_quota_amount": {
+          "title": "免费额度",
+          "type": "number",
+          "default": 1000
+        },
+        "free_refresh_hours": {
+          "title": "免费额度刷新周期",
+          "description": "单位小时",
+          "type": "number",
+          "default": 24
+        },
+        "token_per_yuan": {
+          "title": "每元兑换 TOKEN",
+          "description": "每 1 元可兑换多少 TOKEN",
+          "type": "number",
+          "default": 1000
+        },
+        "charge_only_in_ycy_mode": {
+          "title": "仅役次元模式计费",
+          "type": "boolean",
+          "default": true
+        },
+        "skip_group_chat_billing": {
+          "title": "群聊不计费",
+          "type": "boolean",
+          "default": true
+        },
+        "insufficient_balance_reply": {
+          "title": "余额不足提示",
+          "type": "string",
+          "default": "余额不足，请先充值。"
+        },
+        "provider_multipliers": {
+          "title": "Provider 倍率",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "provider_id": {
+                "type": "string"
+              },
+              "multiplier": {
+                "type": "number"
+              }
+            }
+          },
+          "default": []
+        }
+      }
+    }
+  }
+}
